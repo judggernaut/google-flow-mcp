@@ -40,7 +40,7 @@ workarounds now have standard replacements in the protocol:
 ## 3. ✨ Flow features not automated yet
 
 Each of these must be **mapped live before any code is written** (see the house rules). Sources are the
-field notes in `CLAUDE.md`.
+field notes in `CLAUDE.md` and Google's own Flow help pages, linked per row.
 
 | | Feature | Notes | Effort |
 |---|---|---|:-:|
@@ -52,6 +52,12 @@ field notes in `CLAUDE.md`.
 | | **Avatars & custom voices** | The `Me` avatar is used in `flow_continue`. Custom voice creation is deliberately skipped today | 🟡 |
 | | **Tools section** (left nav) | Not mapped yet | 🟡 |
 | | **Agent-mode video batches** | Agent mode renders stills in parallel. Doing the same for clips would need a cost model, because agent mode shows no quote | 🔴 |
+| ⭐ | **Extend** | Continue a Veo 3.1 8 s clip from its final second. In Flow this always runs on Veo 3.1 Lite ([Flow help](https://support.google.com/flow/answer/16352836)). It's a native, cheaper alternative to `chain_previous` for minute-long takes | 🟡 |
+| ⭐ | **Free 360p → 720p upscale** | Pro and Ultra can upscale Omni 360p clips to 720p for 0 credits ([Flow help](https://support.google.com/flow/answer/16352836)). Draft at 360p, then upscale the keeper: about half the cost | 🟢 |
+| | **Camera adjustment ("reshoot")** | Change the camera position or move on an existing clip ([Google blog](https://blog.google/innovation-and-ai/models-and-research/google-labs/flow-refine-videos/)). Needs live mapping, because the controls may be gesture-based | 🟡 |
+| | **Insert / remove object** | Edit a generated clip in place ([Veo 3.1 guide](https://cloud.google.com/blog/products/ai-machine-learning/ultimate-prompting-guide-for-veo-3-1)). Insert is prompt-driven; remove may need a mask | 🟡 |
+| | **Voice references & custom voices** | Omni Flash with ingredients can carry a stock or custom voice (`@Voice: Name`) for the same voice across clips ([Flow help](https://support.google.com/flow/answer/16353334)) | 🟡 |
+| | **Veo 3.1 at 4 / 6 s** | Flow's model page now lists 4/6/8 s for Veo 3.1 (ingredients 8 s only). The driver already picks any duration radio Flow shows, but this hasn't been run live, and costs at 4 and 6 s aren't measured | 🟢 |
 | | **4K download** | Disabled on the Pro plan. Needs an Ultra account to map | 🟢 |
 
 ## 4. 🛡️ Reliability & architecture
@@ -91,5 +97,5 @@ field notes in `CLAUDE.md`.
 2. Progress notifications · structured output · more prompts
 3. Selector registry → `flow_doctor`
 4. Elicitation for credit consent · Tasks for long calls
-5. Vertical reels · `Animate` tool · restore from Trash
+5. Vertical reels · `Animate` tool · free 360p → 720p upscale · Extend · restore from Trash
 6. Passive response reading · native scenes · sampling-based prompt improvement

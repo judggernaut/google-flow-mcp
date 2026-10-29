@@ -74,9 +74,9 @@ Restart the app and ask: ***"Check my Flow session."*** 🎉 You should get your
 
 ### 🎓 Prompting skill
 
-Your assistant gets a video prompting guide and seven templates (shot, film, product, talking, reel,
-transition, character) through the `flow_prompt_guide` tool automatically. For Claude Code, Copilot or Codex,
-you can also install it as an Agent Skill:
+Your assistant automatically gets a video prompting guide through the `flow_prompt_guide` tool. It's based on
+Google's own Veo, Omni and Nano Banana guidance and comes with eight templates (shot, film, product, talking,
+reel, transition, character, still). For Claude Code, Copilot or Codex, you can also install it as an Agent Skill:
 
 ```bash
 mkdir -p ~/.agents/skills ~/.claude/skills

@@ -13,10 +13,10 @@ FORMAT:    [16:9 web | 9:16 social | 1:1 feed (images only)]
 
 ## Example
 
-> The exact matte black ceramic coffee mug from the reference image, with its small white logo, sits on a slab
+> Using the provided image of the mug: the exact matte black ceramic coffee mug, with its small white logo, sits on a slab
 > of dark slate. Wisps of steam rise from fresh coffee. Static close-up, the product sharp and centred.
-> Premium studio look, deep shadows, a single warm rim light tracing the mug's edge. Quiet room tone and a soft
-> pour sound.
+> Premium studio look, deep shadows, a single warm rim light tracing the mug's edge. Ambient noise: quiet room
+> tone. SFX: a soft pour.
 
 ```json
 {
@@ -28,4 +28,5 @@ FORMAT:    [16:9 web | 9:16 social | 1:1 feed (images only)]
 }
 ```
 
+Shoot the reference photo on a plain background, with nothing else in frame. Veo 3.1 Quality can't take references, so use Omni Flash or Veo Lite/Fast for product video.
 Run `flow_techniques` with `category: "product"` for every product phrase and what each one needs.

@@ -10,6 +10,7 @@ STYLE:        [flat cartoon / Pixar-like 3D / photoreal / claymation], kept iden
 PORTRAIT:     full body, neutral pose, plain background, exactly one figure
 PERSONALITY:  [2–3 traits, used by Flow's agent]
 VOICE:        [stock Flow voice, e.g. Achird (male, friendly), Aoede (female, breezy), Charon (male, informative)]
+VOICE LINE:   "In a [quality] voice with a [accent] accent" (paste it into every scene where they speak)
 ```
 
 ## Example
@@ -24,4 +25,4 @@ VOICE:        [stock Flow voice, e.g. Achird (male, friendly), Aoede (female, br
 }
 ```
 
-To change the look later, use `flow_character_edit` with the full new `look`. Characters are per project.
+Describe the parts that never change in detail: build and age, face shape, eye colour, hair, clothes with their colours, and any defining marks. To change the look later, use `flow_character_edit` with the full new `look`. Characters are per project.

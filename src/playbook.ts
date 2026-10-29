@@ -12,17 +12,18 @@ export const PLAYBOOK = {
   ],
   models: {
     "Omni 1.1 Flash": "7 credits at 4s, 12 at 8s (720p). Supports duration 4/6/8/10 and 360p/720p. Best default for drafts and frame-to-frame transitions.",
-    "Veo 3.1 - Lite": "10 credits, fixed 8s.",
-    "Veo 3.1 - Fast": "20 credits, fixed 8s.",
-    "Veo 3.1 - Quality": "100 credits, fixed 8s. Needs max_credits raised explicitly.",
+    "Veo 3.1 - Lite": "10 credits at 8s. Flow lists 4/6/8s (ingredients 8s only); read the quote.",
+    "Veo 3.1 - Fast": "20 credits at 8s. Flow lists 4/6/8s (ingredients 8s only).",
+    "Veo 3.1 - Quality": "100 credits at 8s. Flow lists 4/6/8s. No ingredients (reference_images). Needs max_credits raised explicitly.",
     "Nano Banana (newest, 2.1 today)": "Images, 0 credits; picked automatically for images. Use it to make keyframes and product stills before spending on video. Pro and 2 Lite are also 0 credits, when named.",
   },
   prompt_order: "subject and action -> shot size and camera move -> location -> visual style -> lighting -> sound/dialogue",
   prompt_rules: [
     "Write prompts in English, one continuous shot per scene, one camera move per scene.",
     "Name the camera behaviour explicitly (static locked-off, slow push-in, orbit, crane up, handheld).",
-    "Repeat the full description of a recurring character or product in every scene; Flow has no memory between scenes.",
-    "Put spoken lines in quotes and say who speaks; keep a line short enough for the clip length.",
+    "Repeat the full description of a recurring character or product in every text-only or ingredients scene; Flow has no memory between scenes.",
+    "When a scene starts from an image (first_frame, chain_previous, flow_continue), prompt for motion only: the image already fixes subject, set and style.",
+    "Write speech after a colon WITHOUT quotation marks (Google: quotes can render as on-screen text): The old man says: That's enough. Name the speaker and keep the line to about 2.5 words per clip second.",
     "For 9:16 social video set aspect_ratio on every scene.",
   ],
   continuity: [

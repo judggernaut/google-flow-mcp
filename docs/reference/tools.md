@@ -25,7 +25,7 @@ Legend: 🆓 free · 💳 spends Flow credits · 🖥️ runs only on your compu
 | `flow_edit` | 💳 ~20 | Video-to-video edit of a clip in the project (relight, change weather, remove objects). Flow shows no quote first | `project`, `asset`, `prompt`, `acknowledge_cost: true` |
 | `flow_continue` | 💳 | Starts a clip on the last frame of an existing one, through agent mode | `project`, `from_asset`, `prompt`, `mode` `exact`\|`likeness`, `attach[]` ≤3, `aspect_ratio` `16:9`\|`9:16`, `acknowledge_cost: true`, `force?` |
 | `flow_techniques` | 🆓 | 39 film-technique presets to pass as a scene's `technique` | `category?` `camera`\|`product`\|`transition`\|`image` |
-| `flow_prompt_guide` | 🆓 | The [video prompting guide](../guides/prompting.md): workflow, formula, rules, costs, or one fill-in template | `template?` `shot`\|`film`\|`product`\|`talking`\|`reel`\|`transition`\|`character` |
+| `flow_prompt_guide` | 🆓 | The [video prompting guide](../guides/prompting.md): workflow, formula, rules, costs, or one fill-in template | `template?` `shot`\|`film`\|`product`\|`talking`\|`reel`\|`transition`\|`character`\|`still` |
 
 ### `flow_generate` scene fields
 
@@ -35,7 +35,7 @@ Legend: 🆓 free · 💳 spends Flow credits · 🖥️ runs only on your compu
 | `type` | `video` \| `image` | `video` |
 | `model` | Flow model family name, e.g. `Veo 3.1 - Fast`, `Omni 1.1 Flash`, `Nano Banana Pro` | Flow's current. Images use the newest non-Lite Nano Banana |
 | `aspect_ratio` | `16:9` `9:16` `1:1` `4:3` `3:4` (the last three are image only) | Flow's current |
-| `duration` | `4` `6` `8` `10` seconds (Omni only, Veo 3.1 is always 8 s) | Flow's current |
+| `duration` | `4` `6` `8` `10` s (Omni Flash), `4` `6` `8` s (Veo 3.1, ingredients 8 s only) | Flow's current |
 | `resolution` | `360p` \| `720p` (Omni only) | Flow's current |
 | `variants` | 1–4 | 1 |
 | `max_credits` | number ≥ 0 | `25` |

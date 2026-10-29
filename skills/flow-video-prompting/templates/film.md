@@ -30,17 +30,20 @@ SHOT 4 [payoff]:    ...
 1. `flow_character` → Pip (free).
 2. `flow_agent_images` → three keyframes with `references: [{ "image": "asset:Pip", "name": "Pip" }]` (free). Get a yes.
 3. Tell the user the total: 3 × 15 = 45 credits.
-4. `flow_generate`:
+4. `flow_generate`. Every shot here starts from an image (a keyframe, or the previous clip's last frame), so
+   each prompt describes **motion only** and doesn't repeat the LOOK:
 
 ```json
 {
   "project": "Lamplighter",
   "scenes": [
-    { "prompt": "<shot 1 + LOOK>", "first_frame": "/Users/you/flow-mcp-out/Lamplighter/scene-01.png", "model": "Omni 1.1 Flash", "duration": 10, "resolution": "720p", "max_credits": 15 },
-    { "prompt": "<shot 2 + LOOK>", "chain_previous": true, "model": "Omni 1.1 Flash", "duration": 10, "resolution": "720p", "max_credits": 15 },
-    { "prompt": "<shot 3 + LOOK>", "chain_previous": true, "model": "Omni 1.1 Flash", "duration": 10, "resolution": "720p", "max_credits": 15 }
+    { "prompt": "He climbs onto the rooftop, the brass pole over his shoulder. Slow lateral tracking shot. Ambient noise: wind, a distant dog.", "first_frame": "/Users/you/flow-mcp-out/Lamplighter/scene-01.png", "model": "Omni 1.1 Flash", "duration": 10, "resolution": "720p", "max_credits": 15 },
+    { "prompt": "He reaches up and lights the street lamp, which bursts into warm light. Static medium shot. SFX: a soft whoosh of flame.", "chain_previous": true, "model": "Omni 1.1 Flash", "duration": 10, "resolution": "720p", "max_credits": 15 },
+    { "prompt": "Lamps across the hillside flicker on one by one as he watches. Slow pull-back to a wide shot. Gentle music swells.", "chain_previous": true, "model": "Omni 1.1 Flash", "duration": 10, "resolution": "720p", "max_credits": 15 }
   ]
 }
 ```
+
+For shots made from text alone (no `first_frame`), write the full prompt: shot + CAST description + LOOK, word for word every time.
 
 5. `flow_narrate` (free) → `flow_assemble` with `voiceover` and `hold_last_frame: false` → `flow_captions` (optional).

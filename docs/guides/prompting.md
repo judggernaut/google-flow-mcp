@@ -1,7 +1,7 @@
 # 🎓 Prompting skill & templates
 
 Good prompts save credits. flow-mcp ships a **video prompting skill**: a shot-planning workflow, a prompt
-formula, rules learned the hard way, model costs, and seven fill-in templates with worked examples. Your
+formula, rules learned the hard way, model costs, and eight fill-in templates with worked examples. Your
 assistant gets it in one of three ways, depending on the app:
 
 | How | Works in | What to do |
@@ -52,13 +52,18 @@ in Claude Code and Copilot, `$flow-video-prompting` in Codex.
 - 🧍 Repeat the full character description in every scene, or use `asset:<character>`.
 - 🖼️ Make the stills first (free), then animate them.
 - 🙅 Say what you want to see, not what you don't (*"an empty beach"*, not *"no people"*).
-- 🗣️ Keep lines to about 2.5 words per second of clip.
+- 🗣️ Dialogue goes after a colon, **without quotation marks** (quotes can show up as on-screen text). Keep it to about 2.5 words per second of clip.
+- 🖼️ Starting from an image? Describe **motion only**.
+- 🧩 Say how each reference is used: *"Using the provided images of…"*.
 - 💳 Quote the credit total before anything paid.
 
 The [full guide](https://github.com/judggernaut/google-flow-mcp/blob/main/skills/flow-video-prompting/SKILL.md) has the
 model cost table and continuity options. It follows Google's own
 [Veo / Omni Flash prompt guide](https://cloud.google.com/vertex-ai/generative-ai/docs/video/video-gen-prompt-guide),
-plus lessons from real runs.
+[best practices](https://cloud.google.com/vertex-ai/generative-ai/docs/video/best-practice),
+the [Veo 3.1 guide](https://cloud.google.com/blog/products/ai-machine-learning/ultimate-prompting-guide-for-veo-3-1),
+the [Nano Banana guide](https://ai.google.dev/gemini-api/docs/image-generation#prompt-guide) and
+[Flow's help](https://support.google.com/flow/answer/16352836), plus lessons from real runs.
 
 ## 🧩 Templates
 
@@ -89,3 +94,7 @@ plus lessons from real runs.
 === "🎭 Character"
 
     --8<-- "skills/flow-video-prompting/templates/character.md"
+
+=== "🖼️ Still"
+
+    --8<-- "skills/flow-video-prompting/templates/still.md"
