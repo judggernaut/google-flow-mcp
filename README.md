@@ -72,6 +72,20 @@ For **Claude Desktop, Copilot CLI, Cursor, Antigravity** and other apps that tak
 
 Restart the app and ask: ***"Check my Flow session."*** 🎉 You should get your plan and credit balance back. Per-app details are in [Connect your assistant](https://judggernaut.github.io/google-flow-mcp/guides/connect/).
 
+### 🎓 Prompting skill
+
+Your assistant gets a video prompting guide and seven templates (shot, film, product, talking, reel,
+transition, character) through the `flow_prompt_guide` tool automatically. For Claude Code, Copilot or Codex,
+you can also install it as an Agent Skill:
+
+```bash
+mkdir -p ~/.agents/skills ~/.claude/skills
+ln -s ~/flow-mcp/skills/flow-video-prompting ~/.agents/skills/   # Copilot CLI, Codex
+ln -s ~/flow-mcp/skills/flow-video-prompting ~/.claude/skills/   # Claude Code
+```
+
+See [Prompting skill & templates](https://judggernaut.github.io/google-flow-mcp/guides/prompting/).
+
 ### 🎛️ Or use the control panel
 
 ```bash
@@ -91,9 +105,10 @@ Then fully quit and reopen your assistant app.
 ## 🧹 Uninstall
 
 1. **Disconnect it from your assistant:** `claude mcp remove --scope user flow` or `codex mcp remove flow`, or delete the `"flow"` entry from your app's MCP config.
-2. **Delete the program:** `rm -rf ~/flow-mcp`
-3. **Delete its data** (the signed-in Chrome profile, the panel token, a saved Gemini key, speech models): `rm -rf ~/.flow-mcp`
-4. *(Optional)* Your films are in `~/flow-mcp-out`. Delete that folder only if you don't want them.
+2. **Remove the skill links**, if you added them: `rm -f ~/.agents/skills/flow-video-prompting ~/.claude/skills/flow-video-prompting`
+3. **Delete the program:** `rm -rf ~/flow-mcp`
+4. **Delete its data** (the signed-in Chrome profile, the panel token, a saved Gemini key, speech models): `rm -rf ~/.flow-mcp`
+5. *(Optional)* Your films are in `~/flow-mcp-out`. Delete that folder only if you don't want them.
 
 On Windows, delete the same folders under `%USERPROFILE%`. Nothing is installed system-wide. Uninstall FFmpeg and whisper.cpp with your package manager if you no longer need them.
 

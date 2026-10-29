@@ -1,6 +1,6 @@
 # 🧰 MCP tools
 
-flow-mcp exposes **20 tools** over stdio (`@modelcontextprotocol/sdk`, `McpServer` + `StdioServerTransport`).
+flow-mcp exposes **21 tools** and **1 prompt** over stdio (`@modelcontextprotocol/sdk`, `McpServer` + `StdioServerTransport`).
 You rarely call them by name. Your assistant picks them from what you ask. Every tool carries MCP
 [annotations](https://modelcontextprotocol.io/specification/2025-06-18/server/tools#tool-annotations)
 (`readOnlyHint`, `destructiveHint`, `idempotentHint`, `openWorldHint`).
@@ -25,6 +25,7 @@ Legend: 🆓 free · 💳 spends Flow credits · 🖥️ runs only on your compu
 | `flow_edit` | 💳 ~20 | Video-to-video edit of a clip in the project (relight, change weather, remove objects). Flow shows no quote first | `project`, `asset`, `prompt`, `acknowledge_cost: true` |
 | `flow_continue` | 💳 | Starts a clip on the last frame of an existing one, through agent mode | `project`, `from_asset`, `prompt`, `mode` `exact`\|`likeness`, `attach[]` ≤3, `aspect_ratio` `16:9`\|`9:16`, `acknowledge_cost: true`, `force?` |
 | `flow_techniques` | 🆓 | 39 film-technique presets to pass as a scene's `technique` | `category?` `camera`\|`product`\|`transition`\|`image` |
+| `flow_prompt_guide` | 🆓 | The [video prompting guide](../guides/prompting.md): workflow, formula, rules, costs, or one fill-in template | `template?` `shot`\|`film`\|`product`\|`talking`\|`reel`\|`transition`\|`character` |
 
 ### `flow_generate` scene fields
 
@@ -75,6 +76,12 @@ Legend: 🆓 free · 💳 spends Flow credits · 🖥️ runs only on your compu
 | `flow_transcribe` | 🆓 | Word-level transcript with start and end times for any audio or video (whisper.cpp) | `video`, `language` (default `auto`), `words` |
 | `flow_captions` | 🆓 | Burns captions into a video and writes an `.srt` | `video`, `style` `bold`\|`highlight`\|`reveal`\|`clean`\|`boxed`, `position`, `size`, `letters`, `color`, `lead`, `names[]`, `text?`, `language` |
 | `flow_assemble` | 🆓 | Joins clips into one MP4 with music, voiceover or per-line `voice_lines`, and separate volume controls | `project`, `clips[]?`, `music?`, `music_volume` (0.25), `clip_volume` (1), `voiceover?`, `voice_lines[]?`, `hold_last_frame` |
+
+## 💬 MCP prompts
+
+| Prompt | Arguments | What it does |
+|---|---|---|
+| `plan_video` | `idea?`, `template?` | Loads the prompting guide (and a template) and asks the assistant to plan a shot list, prompts and credit total, then wait for your OK |
 
 ## 🛡️ Guardrails built into every tool
 

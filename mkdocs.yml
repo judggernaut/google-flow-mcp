@@ -40,6 +40,7 @@ nav:
       - Getting started: getting-started.md
       - Connect your assistant: guides/connect.md
       - Your first film: guides/first-film.md
+      - Prompting skill & templates: guides/prompting.md
       - Flow Studio: guides/studio.md
       - Overview (plain English): overview.md
       - Troubleshooting: troubleshooting.md
@@ -62,6 +63,9 @@ markdown_extensions:
   - pymdownx.tasklist: { custom_checkbox: true }
   - pymdownx.highlight: { anchor_linenums: true }
   - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      base_path: ["."]
+      check_paths: true
   - pymdownx.tabbed: { alternate_style: true }
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji

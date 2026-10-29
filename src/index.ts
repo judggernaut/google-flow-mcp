@@ -6,6 +6,8 @@ import { LocalCore, shapes, type Core } from "./core.js";
 import { PLAYBOOK } from "./playbook.js";
 import { RemoteCore } from "./remote.js";
 import { PORT, startServer } from "./server.js";
+import { promptGuide, promptTemplate, TEMPLATE_NAMES } from "./skill.js";
+import { z } from "zod";
 
 const local = new LocalCore();
 const role = await startServer(local);
@@ -317,6 +319,48 @@ server.registerTool(
     annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
   },
   (args) => reply(patient("flow_captions", core.captions(args))),
+);
+
+server.registerTool(
+  "flow_prompt_guide",
+  {
+    title: "Video prompting guide and templates",
+    description:
+      `How to write Flow prompts that work first time: the shot-planning workflow, the prompt formula, rules that save credits, model costs and continuity options. Call it before planning any video, film, ad or reel. Pass \`template\` for a fill-in template with a worked example and the matching tool call: ${TEMPLATE_NAMES.join(", ")}.`,
+    inputSchema: {
+      template: z.string().optional().describe(`One of: ${TEMPLATE_NAMES.join(", ")}. Omit for the full guide.`),
+    },
+    annotations: { readOnlyHint: true, openWorldHint: false },
+  },
+  async ({ template }) => reply(Promise.resolve().then(() => ({ guide: template ? promptTemplate(template) : promptGuide() }))),
+);
+
+server.registerPrompt(
+  "plan_video",
+  {
+    title: "Plan a Flow video",
+    description: "Turn an idea into a shot list, Flow prompts and flow-mcp calls, using the prompting guide and templates.",
+    argsSchema: {
+      idea: z.string().optional().describe("What you want to make, in your own words."),
+      template: z.string().optional().describe(`Starting template: ${TEMPLATE_NAMES.join(", ")}.`),
+    },
+  },
+  ({ idea, template }) => ({
+    messages: [
+      {
+        role: "user",
+        content: {
+          type: "text",
+          text: [
+            promptGuide(),
+            template && TEMPLATE_NAMES.includes(template) ? `\n---\n\n${promptTemplate(template)}` : "",
+            `\n---\n\nUsing the guide above, help me plan this${idea ? `: ${idea}` : ". Ask me what I want to make."} ` +
+              "Fill in the matching template, show me the shot list, prompts and credit total, and wait for my OK before spending credits.",
+          ].join("\n"),
+        },
+      },
+    ],
+  }),
 );
 
 await server.connect(new StdioServerTransport());

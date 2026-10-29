@@ -2,6 +2,7 @@
 export const PLAYBOOK = {
   workflow: [
     "Call flow_status first. If it returns a hint, relay it to the user and stop.",
+    "Before planning a video, film, ad or reel, call flow_prompt_guide (and flow_prompt_guide with a template) and follow it.",
     "Plan the whole piece as scenes of one shot each, then send them in ONE flow_generate call so file numbering and chaining work.",
     "Tell the user the expected credit total before queueing anything that costs credits.",
     "Call flow_wait repeatedly until finished is true; scenes run one at a time with 25-70 s pauses.",

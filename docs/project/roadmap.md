@@ -22,7 +22,7 @@ Legend: 🟢 small · 🟡 medium · 🔴 large · ⭐ recommended next
 
 ## 2. 🤖 Use more of the MCP protocol
 
-flow-mcp only uses **tools** today ([details](../reference/apis.md#1-mcp-what-flow-mcp-exposes)). Several of its
+flow-mcp uses **tools** and one **prompt** (`plan_video`) today ([details](../reference/apis.md#1-mcp-what-flow-mcp-exposes)). Several of its
 workarounds now have standard replacements in the protocol:
 
 | | Feature | What it replaces / enables | Effort |
@@ -32,7 +32,7 @@ workarounds now have standard replacements in the protocol:
 | ⭐ | **Tasks** ([spec 2025-11-25](https://modelcontextprotocol.io/specification/2025-11-25)) | The protocol's own long-running-call mechanism. It replaces the custom `still_working` / `task_id` / `flow_wait` pattern where clients support it | 🟡 |
 | | **Structured output** (`outputSchema` + `structuredContent`) | Typed results (files, credits, job ids) that clients and scripts can rely on | 🟢 |
 | | **Resources** | `flow://assets`, `flow://characters`, `flow://jobs/{id}`, and finished files as resource links, so clients can browse and attach them | 🟡 |
-| | **Prompts** | Ready-made recipes such as `/storyboard`, `/first-film`, `/continue-shot` and `/caption-video`, shown as slash commands in clients | 🟢 |
+| ✅ | **Prompts** | `plan_video` shipped, built from the prompting skill. Next: `/continue-shot` and `/caption-video` recipes | 🟢 |
 | | **Sampling** | Ask the *client's* model to improve a prompt or plan a shot list. That would deliver Studio's unbuilt "improve prompt" with no API key or extra cost | 🟡 |
 | | **Logging notifications** | Send `FLOW_MCP_DEBUG` steps to the client log instead of stderr | 🟢 |
 | | **MCP Apps (UI resources)** | Show Flow Studio's previews (captions, gallery) inline in chat clients that support them | 🔴 |
@@ -88,7 +88,7 @@ field notes in `CLAUDE.md`.
 ## ⭐ Suggested order
 
 1. License (talk to upstream) · CI build · unit tests for pure logic
-2. Progress notifications · structured output · prompts
+2. Progress notifications · structured output · more prompts
 3. Selector registry → `flow_doctor`
 4. Elicitation for credit consent · Tasks for long calls
 5. Vertical reels · `Animate` tool · restore from Trash

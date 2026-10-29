@@ -34,11 +34,11 @@ flowchart TB
 | Aspect | Today |
 |---|---|
 | SDK / transport | `@modelcontextprotocol/sdk` ^1.30, `McpServer` + `StdioServerTransport` (`src/index.ts`) |
-| Tools | 20, see [Tools](tools.md) |
+| Tools | 21, see [Tools](tools.md) |
 | Tool annotations | ✅ `readOnlyHint`, `destructiveHint`, `idempotentHint`, `openWorldHint` on every tool |
 | Long-running calls | Custom: after `FLOW_MCP_PATIENCE_MS` (45 s) a call returns `still_working` + `task_id`, and `flow_wait` collects the result |
 | Resources / resource templates | ❌ not used |
-| Prompts | ❌ not used. The prompt playbook is returned inside `flow_status` |
+| Prompts | ✅ `plan_video`, built from the [prompting skill](../guides/prompting.md) (`src/skill.ts`). The short playbook still comes back inside `flow_status` |
 | Progress notifications | ❌ not used. Progress is polled through `flow_wait` / `flow_status` |
 | Logging notifications | ❌ not used (`FLOW_MCP_DEBUG` writes to stderr) |
 | Elicitation | ❌ not used. Credit consent is a boolean argument (`acknowledge_cost`) |

@@ -56,7 +56,7 @@ Mac is the tested platform. Windows support is new and hasn't been tried on a re
 
 ---
 
-## The toolkit: 20 tools
+## The toolkit: 21 tools
 
 ### Getting set up
 
@@ -75,6 +75,7 @@ Mac is the tested platform. Windows support is new and hasn't been tried on a re
 | **Bulk Storyboard** | Hands up to 50 stills to Flow's own assistant, which draws them all at once in about a minute. Free |
 | **Continue a Shot** | Picks up on the real last frame of a clip you already made, so the two play as one unbroken take and you cannot see the join. This is how you follow someone across a cut without them changing |
 | **Restyle Clip** | Takes a clip you already made and changes it: relight it, change the weather, swap a background. Costs about 20 credits, and Flow shows no price beforehand, so this one always asks you first |
+| **Prompt Coach** | A guide to writing prompts that work first time, with fill-in templates for a single shot, a short film, a product ad, someone talking, a vertical reel, a transition and a character. Your assistant reads it before planning |
 | **Camera Move Library** | 39 ready-written camera directions: 360° orbit, crash zoom, pull-back reveal, drone fly-through, seamless loop, match cut, logo resolve, and more |
 
 **One rule worth knowing before you use Continue a Shot.** Flow makes you pick one of two things, and it will not do both:

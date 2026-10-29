@@ -38,6 +38,7 @@ npm run login        # sign the dedicated Chrome profile into Google, once
 | `src/gemini.ts` | Gemini TTS and key handling |
 | `src/platform.ts` | Every OS difference (trash, unzip, open URL, speech) |
 | `src/techniques.ts`, `src/playbook.ts` | Prompt presets and the guidance `flow_status` returns |
+| `skills/flow-video-prompting/` | The prompting Agent Skill and templates. `src/skill.ts` serves them as `flow_prompt_guide` and the `plan_video` prompt |
 | `studio/index.html` | Flow Studio: one file, vanilla JS, mobile-first |
 | `CLAUDE.md` | Agent instructions and the **Flow UI field notes**. Read them before touching `flow.ts` |
 
@@ -82,8 +83,8 @@ The site uses [MkDocs](https://www.mkdocs.org) with the [Material](https://squid
 theme, and deploys to GitHub Pages on every push to `main` that touches `docs/` or `mkdocs.yml`.
 
 ```bash
-uvx --with mkdocs-material mkdocs serve      # live preview on http://127.0.0.1:8000
-uvx --with mkdocs-material mkdocs build --strict
+uvx --with-requirements docs/requirements.txt mkdocs serve      # live preview on http://127.0.0.1:8000
+uvx --with-requirements docs/requirements.txt mkdocs build --strict
 ```
 
 Style: plain words, short sentences, emojis in headings, and verified facts only. If a claim comes from a
@@ -94,4 +95,4 @@ live test, say when it was tested.
 - [ ] `npm run build` passes
 - [ ] New or changed selectors were mapped live and noted in `CLAUDE.md`
 - [ ] No credits spent without consent, and no keys or personal paths in the diff
-- [ ] Docs updated (`docs/reference/tools.md` for tool changes)
+- [ ] Docs updated (`docs/reference/tools.md` for tool changes, the skill for prompting advice)
