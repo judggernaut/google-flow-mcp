@@ -1,4 +1,4 @@
-# Parking lot
+# 🅿️ Parking lot
 
 Ideas we want, not started yet. Newest at the bottom.
 

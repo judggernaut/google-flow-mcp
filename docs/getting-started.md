@@ -1,4 +1,4 @@
-# Getting started with Flow MCP
+# 🚀 Getting started
 
 From nothing to your first video, step by step. No coding needed.
 
@@ -8,7 +8,7 @@ talking to an AI assistant, or click through it yourself in its control panel, *
 
 ---
 
-## 1. What it costs
+## 💰 What it costs
 
 **Flow itself: free.** All you need is a Google account (a Gmail). Flow gives every account **50 free
 credits a day**; unused credits don't carry over. Stills cost nothing, and a short video clip is about 7–12
@@ -33,14 +33,14 @@ something.
 
 ---
 
-## Setup A: let your assistant do it
+## 🤖 Setup A: let your assistant do it
 
 For Antigravity, Codex or Claude Code. The assistant installs everything, including the helper programs,
 and connects the tool to itself, so there is no separate "connect" step.
 
 **1.** Open your assistant and paste this:
 
-> *Set up Flow MCP from https://github.com/GTAI-1/flow-mcp for me. Install anything it needs that I don't
+> *Set up Flow MCP from https://github.com/judggernaut/google-flow-mcp for me. Install anything it needs that I don't
 > have yet (Node.js 22 or newer, Google Chrome, FFmpeg and whisper.cpp), put it in my home folder, build
 > it, connect it to yourself, then run `npm run login`.*
 
@@ -65,7 +65,7 @@ desktop app."* Then quit the Claude app completely and reopen it.
 
 ---
 
-## Setup B: do it yourself
+## 🛠️ Setup B: do it yourself
 
 For the free Claude app (Chat tab), or for using Flow Studio with no assistant at all. You copy and paste
 a few commands into **Terminal** (Mac) or **PowerShell** (Windows).
@@ -107,7 +107,7 @@ cd ~
 ```
 
 ```bash
-git clone https://github.com/GTAI-1/flow-mcp.git
+git clone https://github.com/judggernaut/google-flow-mcp.git flow-mcp
 ```
 
 ```bash
@@ -155,11 +155,11 @@ Skip this if you'll only use Flow Studio.
 4. Ask: *"Check my Flow session."*
 
 To connect Claude Code, Codex or Antigravity by hand instead, see the
-[README](README.md#connect-it-to-claude-codex-or-antigravity).
+[Connect your assistant](guides/connect.md) guide.
 
 ---
 
-## Starting and stopping
+## ⏯️ Starting and stopping
 
 Nothing needs to run all the time.
 
@@ -175,7 +175,7 @@ right-click it → **Open**, or run `npm run studio` in the `flow-mcp` folder.
 
 ---
 
-## Your first video
+## 🎬 Your first video
 
 Talk in plain English; you never type tool names. Nothing costs credits until step 4, and the assistant
 asks before spending.
@@ -195,7 +195,7 @@ Voice, Restyle, Cut, Captions.
 
 ---
 
-## If something goes wrong
+## 🆘 If something goes wrong
 
 | What you see | What to do |
 |---|---|
@@ -211,7 +211,7 @@ Voice, Restyle, Cut, Captions.
 
 ---
 
-## Updating
+## 🔄 Updating
 
 Tell your assistant: *"Update Flow MCP: in my flow-mcp folder, run git pull, then npm install, then npm run
 build."* Or run them yourself in the `flow-mcp` folder:

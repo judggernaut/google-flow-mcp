@@ -1,0 +1,79 @@
+site_name: flow-mcp
+site_description: Make Google Flow videos and images by just asking your AI assistant.
+site_url: https://judggernaut.github.io/google-flow-mcp/
+repo_url: https://github.com/judggernaut/google-flow-mcp
+repo_name: judggernaut/google-flow-mcp
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  icon:
+    logo: material/movie-open-star
+    repo: fontawesome/brands/github
+  favicon: assets/favicon.svg
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: amber
+      toggle: { icon: material/weather-night, name: Dark mode }
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: amber
+      toggle: { icon: material/weather-sunny, name: Light mode }
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.instant
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+    - content.action.edit
+
+nav:
+  - 🏠 Home: index.md
+  - 🚀 Get started:
+      - Getting started: getting-started.md
+      - Connect your assistant: guides/connect.md
+      - Your first film: guides/first-film.md
+      - Flow Studio: guides/studio.md
+      - Overview (plain English): overview.md
+      - Troubleshooting: troubleshooting.md
+  - 📖 Reference:
+      - MCP tools: reference/tools.md
+      - APIs & architecture: reference/apis.md
+      - Configuration: reference/configuration.md
+  - 🛠️ Project:
+      - Roadmap & analysis: project/roadmap.md
+      - Parking lot: project/parking-lot.md
+      - Contributing: project/contributing.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc: { permalink: true }
+  - pymdownx.details
+  - pymdownx.tasklist: { custom_checkbox: true }
+  - pymdownx.highlight: { anchor_linenums: true }
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed: { alternate_style: true }
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/judggernaut/google-flow-mcp
+  generator: false
